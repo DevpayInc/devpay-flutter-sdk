@@ -34,7 +34,7 @@ class PaymentManager {
       "secreate_key": config.accessKey
     };
 
-    Map<String, dynamic> chargeInfoObj = cardInfo();
+    Map<String, dynamic> chargeInfoObj = chargeInfo();
     if (config.sandbox) {
       chargeInfoObj["environment"] = "sandbox";
     }
@@ -66,7 +66,7 @@ class PaymentManager {
       "secreate_key": config.accessKey
     };
 
-    Map<String, dynamic> chargeInfoObj = cardInfo();
+    Map<String, dynamic> chargeInfoObj = chargeInfo();
     if (config.sandbox) {
       chargeInfoObj["environment"] = "sandbox";
     }
@@ -78,6 +78,6 @@ class PaymentManager {
     Map<String, String> headers = new Map();
 
     var response = await client.post("/v1/charge/confirm_charge", jsonReqData(),headers: headers);
-    return response["status"];
+    return (response["status"] == 1);
   }
 }

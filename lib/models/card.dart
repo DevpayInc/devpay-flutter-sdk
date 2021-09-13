@@ -11,9 +11,4 @@ class Card {
     this.cvv = cvv;
   }
 
-  Map<String, dynamic> toJSON() => {
-        "cardNum": cardNum,
-        "cardExpiry": {"month": expiryMonth, "year": expiryYear},
-        "cvv": cvv
-      };
 }

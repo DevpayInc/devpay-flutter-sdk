@@ -14,11 +14,4 @@ class BillingAddress {
     this.country = country;
   }
 
-  Map<String, dynamic> toJSON() => {
-        'street': street,
-        'city': city,
-        'country': country,
-        'zip': zip,
-        'state': state,
-      };
 }

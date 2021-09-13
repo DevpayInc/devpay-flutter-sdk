@@ -22,21 +22,7 @@ class DevpayModal {
   final cityTfController = TextEditingController();
   final stateTfController = TextEditingController();
   final countryTfController = TextEditingController();
-
-  void _testData(){
-
-    cardnameTfController.text = "4037111111000000";
-    cvvTfController.text = "123";
-    expiryTfController.text = "10/2024";
-
-    nameTfController.text = "John doe";
-    streetTfController.text = "123 ABC Lane";
-    cityTfController.text = "Memphis";
-    zipTfController.text = "38138";
-    stateTfController.text = "TN";
-    countryTfController.text = "US";
-  }
-
+  
   devpay.PaymentDetail _pay() {
 
     String name = nameTfController.text;
@@ -61,7 +47,6 @@ class DevpayModal {
     devpay.PaymentDetail paymentDetail = new devpay.PaymentDetail(
         name,
         amount,
-        devpay.Currency.USD,
         card,
         address);
     return paymentDetail;
@@ -72,7 +57,6 @@ class DevpayModal {
   String btnText = "Pay";
   late int amount = 0;
   late devpay.Config config;
-  devpay.Currency currency = devpay.Currency.USD;
 
   void _showLoader(context){
     showDialog(
@@ -245,8 +229,6 @@ class DevpayModal {
             return null;
           },
         );
-
-        _testData();
 
         return Scaffold(
             appBar: AppBar(

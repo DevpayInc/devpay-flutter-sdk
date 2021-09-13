@@ -27,7 +27,6 @@ class DevPayClient {
   }
 
   Future<bool> confirmPayment(PaymentDetail paymentDetail) async {
-
     return manager.confirmPayment(paymentDetail);
   }
 
