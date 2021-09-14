@@ -3,9 +3,11 @@ A Flutter SDK for Devpay Payment Gateway Get your API Keys at https://devpay.io
 
 ## Integration
 
-
+Add dev_pay dependency in pubsec.yaml
 ```shell
-flutter pub add dev_pay
+  dev_pay:
+    git: https://github.com/DevpayInc/devpay-flutter-sdk
+
 ```
 
 
