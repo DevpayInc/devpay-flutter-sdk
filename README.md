@@ -15,7 +15,6 @@ flutter pub add dev_pay
 Devpay SDK provided handy UI to get payment inputs, please refer below code.
 ```dart
 devpay.Config config = new devpay.Config("ACC_ID",
-    "SHEARABLE_KEY",
     "ACCESS_KEY");
 config.debug = true;
 config.sandbox = true;
@@ -27,15 +26,15 @@ devpayModal.onCompletion = (intent,error) {
     print("Err - "+error.toString());
     }
 
-    if (intent != null) {
-        print("intent - " + intent.status);
+    if (status != null && status== true) {
+        print("Payment successful");
         devpayModal.dismiss(context);
     }
 };
 devpayModal.show(context);
 
 ```
-> Amount & Currency are mandatory inputs, please make sure its provided correctly
+> Amount is mandatory inputs, please make sure its provided correctly
 
 #### Set Custom Pay title
 By default inbuilt UI shows pay button text as 'PAY', you can change the text as required. Below snippets gives an example to do so. 
@@ -62,7 +61,6 @@ devpay.Card card =
 devpay.PaymentDetail paymentDetail = new devpay.PaymentDetail(
     "name",
     <amount>,
-    devpay.Currency.USD,
     card,
     address);
 
@@ -70,7 +68,7 @@ devpay.Config config = ...;
 devpay.DevPayClient client = new devpay.DevPayClient(config);
 
 client.confirmPayment(paymentDetail)
-    .then((paymentIntent) => {
+    .then((status) => {
         // Use paymentIntent 
     })
     .onError((error, stackTrace) => {
